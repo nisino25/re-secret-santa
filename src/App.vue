@@ -237,10 +237,19 @@ data() {
 },
 computed: {
   backgroundStyle() {
+
+    // if(this.showingTab == "check"){
+    //   return {
+    //     backgroundPosition: this.showLeft ? 'left center' : 'right center',
+    //     backgroundRepeat: 'no-repeat',
+    //     height: '100vh',
+    //     transition: 'all 1s ease', // Smooth transition for sliding effect
+    //   }
+    // }
     return {
       // backgroundImage: 'url(public/assets/background.png)', // Replace with your image path
       
-      backgroundPosition: this.showLeft ? 'left center' : 'right center',
+      backgroundPosition: this.showingTab !== "check" ? 'left center' : 'right center',
       backgroundRepeat: 'no-repeat',
       height: '100vh',
       transition: 'all 1s ease', // Smooth transition for sliding effect
@@ -332,6 +341,21 @@ methods: {
 
 mounted(){
   console.clear()
+
+  const element = document.getElementById('modal');
+  if(element){
+    element.style.opacity = 0
+
+    setTimeout(() => {
+      element.style.opacity = ''
+      element.style.transition = "all 1.5s ease-in-out";
+    }, 1000); 
+  }
+
+
+
+
+
   this.randomAlg()
   this.generateAvatars()
 }
@@ -352,7 +376,9 @@ background-size: 150% 100%;
 
 max-width: 450px;
 max-height: 900px;
-margin: autoç;
+margin: auto;
+
+background-position: right;
 }
 
 .modal{
