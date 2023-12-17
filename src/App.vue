@@ -364,6 +364,10 @@ mounted(){
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+html{
+  height: 100vh;
+  overflow: hidden;
+}
 body{
 margin: 0;
 }
