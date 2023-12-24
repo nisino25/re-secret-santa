@@ -758,7 +758,7 @@
       this.randomAlg()
       this.updateStatus('alredy assigned',this.groupMembers)
 
-      this.roomStatus == 'alredy assigned'
+      this.roomStatus = 'alredy assigned'
 
 
       alert('Closed the recuriting')
