@@ -1032,7 +1032,7 @@
     border-radius: 10px;
 
     width: 80%;
-    height: 15vh;
+    height: 15%;
     
     padding: 20px;
     
@@ -1064,7 +1064,7 @@
 
   .showingTab{
     top: 50%;
-    height: 75vh;
+    height: 75%;
     transform: translate(-50%,-50%);
   }
 
