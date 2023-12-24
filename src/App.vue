@@ -993,9 +993,12 @@
     overflow: hidden;
     
   }
-  input {
+  /* input {
     pointer-events: none;
-  }
+  } */
+  input {
+  font-size: 16px; /* Prevents zoom on mobile devices */
+}
   body{
     margin: 0;
   }
