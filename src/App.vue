@@ -225,9 +225,9 @@
                   <div class="member-row-bottom">
                     <div class="member-row-bottom-left">
                       <i v-if="member.isGiftReady" class="fas fa-gift" style="color: green;"></i>
-                      <i v-else class="fas fa-spinner" style="color: red;"></i>
+                      <i v-else class="fas fa-spinner" style="color: red;" @click="changeGiftStatus(member,index)"></i>
                     </div>
-                    <div class="member-detail-button">
+                    <div class="member-detail-button" @click="checkDetail(member)">
                       Check Detail  &rarr;
                     </div>
                   </div>
@@ -530,9 +530,9 @@
 
         if(this.hostName.length == 0) return 
 
-        if(!this.isOneWord(this.hostName)) return alert('Host name needs to be one word') 
+        // if(!this.isOneWord(this.hostName)) return alert('Host name needs to be one word') 
 
-        if(!this.validatePassword(this.password)) return alert('Password needs to be 6 digits number')
+        // if(!this.validatePassword(this.password)) return alert('Password needs to be 6 digits number')
           
         if(!this.selectedDate) return alert('here1')
 
@@ -561,9 +561,9 @@
 
         if(this.tempName.length == 0) return 
 
-        if(!this.isOneWord(this.tempName)) return alert('Host name needs to be one word') 
+        // if(!this.isOneWord(this.tempName)) return alert('Host name needs to be one word') 
 
-        if(!this.validatePassword(this.tempPassword)) return alert('Password needs to be 6 digits number')
+        // if(!this.validatePassword(this.tempPassword)) return alert('Password needs to be 6 digits number')
 
         if(!this.tempAvatarCode) return alert('Pick Avatar pls')
 
@@ -803,6 +803,22 @@
       return alert(`Your secret Santa is [${member.target}]`)
     },
 
+    checkDetail(member){
+      alert(`Data about: ${member.name}\n\nWishlist: ${member.WishList}\n\nWarning: ${member.Warning}`)
+    },
+
+    changeGiftStatus(member,index){
+      if(this.roomStatus == 'recruting') return
+
+      let password = this.askForInput(`If you are [${member.name}].\n Type your password to change your gift status`);
+
+      if(parseInt(password, 10) !== member.password) return alert('wrong passweord')
+      // return alert(`Your secret Santa is [${member.target}]`)
+      this.groupMembers[index].isGiftReady = true
+      this.updateStatus('alredy assigned',this.groupMembers)
+
+    },
+
     
     // --------------------
 
@@ -975,6 +991,10 @@
   html{
     height: 100vh;
     overflow: hidden;
+    
+  }
+  input {
+    pointer-events: none;
   }
   body{
     margin: 0;
