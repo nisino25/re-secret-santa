@@ -205,7 +205,7 @@
             <template v-else>
               <h2  @click="copyUrlToClipboard()">Checkcing [{{roomCode}}]</h2>
 
-              <strong style="display: block; margin: -20px auto 20px;" v-if="roomStatus == 'recruting'" @click="closeRecruting">Done Recruting?</strong>
+              <strong style="display: block; margin: -20px auto 20px;" v-if="roomStatus == 'recruting'" @click="closeRecruting">Done Recruting?<br>Minimum Price is {{ minimumPrice }}¥</strong>
 
               <strong style="display: block; margin: -20px auto 20px;" v-if="roomStatus == 'alredy assigned'">Alredy assigned. Click Your avatar <br> to see your secret santa.</strong>
 
@@ -645,9 +645,12 @@
             this.groupMembers = doc.data().groupMembers;
             this.groupNumber = doc.data().groupNumber;
             this.roomStatus = doc.data().roomStatus;
+            this.minimumPrice = doc.data().minimumPrice;
 
             this.hostName = doc.data().hostName;
             this.hostPassword = doc.data().hostPassword;
+
+
 
             // this.target = doc.data().hostName;
 
