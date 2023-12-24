@@ -1003,7 +1003,9 @@
   font-size: 16px; /* Prevents zoom on mobile devices */
 }
   body{
-    margin: 0;
+    margin: 0 auto;
+    max-width: 500px;
+    
   }
   .background {
     /* background-image: url('../public/assets/images/background.png'); */
@@ -1029,7 +1031,7 @@
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
 
-    width: 80vw;
+    width: 80%;
     height: 15vh;
     
     padding: 20px;
